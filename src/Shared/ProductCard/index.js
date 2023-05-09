@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "@mui/material";
 
 const ProductCard = (props) => {
   console.log(props);
@@ -10,7 +11,9 @@ const ProductCard = (props) => {
         {props.product.title.slice(0, 16)}
       </p>
       <p className="text-center text-xl">₹{props.product.price}</p>
-      <button className="p-2 bg-red-500 px-4 text-white">Add To Cart</button>
+      <Button variant="contained" className="!m-2">
+        Add to Cart
+      </Button>
     </div>
   );
 };

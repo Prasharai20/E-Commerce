@@ -4,6 +4,8 @@ import Home from "./Components/Home";
 import AboutUs from "./Components/AboutUs";
 import Layout from "./Layout";
 import ProductPage from "./Components/ProductPage";
+import SignUp from "./Authentication/SignUp";
+import SignUp2 from "./Authentication/SignUp2";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       {" "}
       <BrowserRouter>
         <Routes>
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/sign-up2" element={<SignUp2 />} />
           <Route path="/" element={<Layout component={<Home />} />} />
           <Route
             path="/about-us"
