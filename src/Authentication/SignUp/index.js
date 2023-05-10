@@ -1,16 +1,49 @@
 import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Name :", name);
-    console.log("Email :", email);
-    console.log("Password :", password);
+    // console.log("Name :", name);
+    // console.log("Email :", email);
+    // console.log("Password :", password);
+
+    const newErrors = {};
+    //Name Validate
+    if (!name) {
+      newErrors.name = "Name is Required";
+    }
+
+    //Email Validate
+    if (!email) {
+      newErrors.email = "Email is Required";
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = "Email is Invalid";
+    }
+
+    //password validate
+    if (!password) {
+      newErrors.password = "Password is required";
+    } else if (password.length < 8) {
+      newErrors.password = "Password must be at least 8 Characters";
+    }
+    if (Object.keys(newErrors).length === 0) {
+      toast.success("Form Submitted Successfully");
+      setEmail("");
+      setName("");
+      setPassword("");
+    } else {
+      toast.error("Enter all required fields");
+    }
+
+    setErrors(newErrors);
   };
   return (
     <div className="flex h-screen">
@@ -28,28 +61,40 @@ const SignUp = () => {
         >
           <TextField
             type="text"
+            label="Name*"
             placeholder="Enter Name"
             value={name}
+            // helperText={errors.name}
             onChange={(event) => setName(event.target.value)}
           />
+          {errors.name ? (
+            <div className="text-red-500 text-xs">*{errors.name}</div>
+          ) : null}
           <TextField
-            type="email"
+            type="text"
             placeholder="Enter Email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
+          {errors.email ? (
+            <div className="text-red-500 text-xs">*{errors.email}</div>
+          ) : null}
           <TextField
             type="password"
             placeholder="Enter Password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
+          {errors.password ? (
+            <div className="text-red-500 text-xs">*{errors.password}</div>
+          ) : null}
 
           <Button type="submit" size="small" variant="contained">
             Submit
           </Button>
         </form>
       </div>
+      <ToastContainer pauseOnHover={false} limit={2} />
     </div>
   );
 };

@@ -6,6 +6,7 @@ import Layout from "./Layout";
 import ProductPage from "./Components/ProductPage";
 import SignUp from "./Authentication/SignUp";
 import SignUp2 from "./Authentication/SignUp2";
+import UncontrolledForm from "./UncontrolledForm";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             path="/product/:id"
             element={<Layout component={<ProductPage />} />}
           />
+          <Route path="/uncontrolled" element={<UncontrolledForm />} />
         </Routes>
       </BrowserRouter>
     </>
