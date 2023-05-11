@@ -7,11 +7,11 @@ import ProductPage from "./Components/ProductPage";
 import SignUp from "./Authentication/SignUp";
 import SignUp2 from "./Authentication/SignUp2";
 import UncontrolledForm from "./UncontrolledForm";
+import UseFormik from "./UseFormik";
 
 function App() {
   return (
     <>
-      {" "}
       <BrowserRouter>
         <Routes>
           <Route path="/sign-up" element={<SignUp />} />
@@ -26,6 +26,7 @@ function App() {
             element={<Layout component={<ProductPage />} />}
           />
           <Route path="/uncontrolled" element={<UncontrolledForm />} />
+          <Route path="/formik" element={<UseFormik />} />
         </Routes>
       </BrowserRouter>
     </>

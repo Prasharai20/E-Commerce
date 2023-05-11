@@ -8,6 +8,7 @@ const UncontrolledForm = () => {
     e.preventDefault();
     setData(nameRef.current.value);
   };
+
   return (
     <div>
       <input
