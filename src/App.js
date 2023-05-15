@@ -8,6 +8,7 @@ import SignUp from "./Authentication/SignUp";
 import SignUp2 from "./Authentication/SignUp2";
 import UncontrolledForm from "./UncontrolledForm";
 import UseFormik from "./UseFormik";
+import Api from "./Api";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           />
           <Route path="/uncontrolled" element={<UncontrolledForm />} />
           <Route path="/formik" element={<UseFormik />} />
+          <Route path="/api" element={<Api />} />
         </Routes>
       </BrowserRouter>
     </>

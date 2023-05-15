@@ -3,13 +3,13 @@ import { useFormik } from "formik";
 
 const UseFormik = () => {
   const initialValues = {
-    name: "",
+    name: "Ram",
     email: "",
     password: "",
   };
   const { handleSubmit, handleChange, values } = useFormik({
     initialValues: initialValues,
-    enableReinitialize: true,
+
     onSubmit: (values) => {
       console.log("Name", values.name);
       console.log("Email", values.email);
